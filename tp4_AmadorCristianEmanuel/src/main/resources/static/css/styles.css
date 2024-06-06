@@ -1,0 +1,45 @@
+@charset "UTF-8";
+.bg-body-tertiary {
+    background-color: #f8f9fa;
+}
+
+.navbar-brand {
+    font-size: 24px;
+}
+
+.container-fluid {
+	margin-left: 30px;
+}
+.navbar-nav {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-item {
+    margin: 0 15px; /* Ajusta este valor para más o menos espaciado */
+}
+
+.nav-link {
+    color: #000 !important;
+}
+
+.nav-link.active {
+    font-weight: bold;
+}
+
+.btn-outline-success {
+    color: #198754;
+    border-color: #198754;
+}
+
+.btn-outline-success:hover {
+    background-color: #198754;
+    color: #fff;
+}
+.nav-bar {
+	background-color: red;
+}
+
+.d-flex {
+	margin-right: 30px;
+}
