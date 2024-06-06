@@ -2,35 +2,64 @@
 <html lang="es">
 <!-- xmlns:th="" NO SE RECOMIENDA USAR  -->
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
-<!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
- <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<title>TP04</title>
+<link rel="stylesheet"
+	data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
-<body>
-	<div>
-		<header>
-			<div data-th-replace = "~{fragments/header::navbar}">
-			<!-- ~ hace referencia, hay muchos: @ # ~ +  -->
+
+<body style="background-color: black">
+	<div class="container-fluid text-center">
+		<div class="row justify-content-center">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<div class="row">
+					<div class="card text-bg-dark border-info">
+						<div class="card-body">
+							<img alt="none" src="/img/fi_logo.png">
+							<h5 class="card-title text-warning bg-dark"
+								style="font-family: JetBrains-Mono">" ~ In lumine tuo
+								videbimus lumen ~ "</h5>
+						</div>
+					</div>
+					<div>
+						<header>
+							<div data-th-replace="~{fragments/header-nav::navbar}">
+								<!--  hace
+						referencia, hay muchos: @ # ~ + -->
+							</div>
+						</header>
+					</div>
+					<aside class="col-md-2">
+						<div data-th-replace="~{fragments/aside-bt::aside-boot}"></div>
+					</aside>
+					<main class="col-md-10">
+						<div class="card text-bg-dark border-warning mt-1"
+							style="font-family: JetBrains-Mono">
+							<h5 class="card-title text-warning fs-3 mt-2">Novedades:</h5>
+							<div class="card-body text-danger">
+								<div class="card-text">Las novedades más relevantes de la
+									semana</div>
+							</div>
+						</div>
+						<div
+							data-th-replace="~{fragments/section-carousel::carousel-section}">
+						</div>
+						<div
+							data-th-replace="~{fragments/section-description::description-f}">
+						</div>
+
+						<!-- 					<div class="col-md-1"></div> -->
+					</main>
+					<footer>
+						<div data-th-replace="~{fragments/footer-f::footer-fr}"></div>
+					</footer>
+				</div>
 			</div>
-		</header>
-		<main>
-		<h1>Trabajo Practico N4</h1>
-			<aside>
-				<h1>Aside</h1>
-			</aside>
-		</main>
-		
-		<footer>
-			<div data-th-replace="~{fragments/header::paginacion}">
-			</div>
-		</footer>
+			<div class="col-md-2"></div>
+		</div>
 	</div>
-	
-	<!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script data-th-src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/principal") /*si o si se debe escribir: localhost:8080/principal/*/
-public class IndexController {
+public class MainController {
 	@GetMapping({"/index","/home"})/*../principal/index*/
 	public String getIndexPage() {
 		return "index";
