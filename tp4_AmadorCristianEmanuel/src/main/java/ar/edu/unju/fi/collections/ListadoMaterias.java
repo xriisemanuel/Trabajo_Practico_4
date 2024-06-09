@@ -41,7 +41,7 @@ public class ListadoMaterias {
 	}
 
 	// metodo para eliminar la materia
-	public static void eliminarMateria(Integer codigo) {
+	public static void eliminarMateria(String codigo) {
 		materias.removeIf(carrera -> carrera.getCode().equals(codigo));
 	}
 }

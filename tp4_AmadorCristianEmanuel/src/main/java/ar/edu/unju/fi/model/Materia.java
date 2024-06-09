@@ -1,7 +1,10 @@
 package ar.edu.unju.fi.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Materia {
-	private Integer code;
+	private String code;
 	private String name;
 	private String course;
 	private Integer hours;
@@ -12,7 +15,7 @@ public class Materia {
 	public Materia() {
 	}
 
-	public Materia(Integer code, String name, String course, Integer hours, boolean modality, String teacher_name,
+	public Materia(String code, String name, String course, Integer hours, boolean modality, String teacher_name,
 			String carrer) {
 		this.code = code;
 		this.name = name;
@@ -23,11 +26,11 @@ public class Materia {
 		this.carrer = carrer;
 	}
 
-	public Integer getCode() {
+	public String getCode() {
 		return code;
 	}
 
-	public void setCode(Integer code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 

@@ -5,19 +5,39 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" data-th-href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
 	</head>
-	<body>
-		<div data-th-replace="~{layouts/header :: header-oficial}">
-			
-		</div>
-		<form data-th-object="${nuevaCarrera}" data-th-action="@{/guardarCarrera}" method="post">
-			<div class="container-fluid text-center">
-				<h1>Formulario Carrera</h1>
-				<input class="form-control form-control-lg" type="text" placeholder="Codigo" aria-label=".form-control-lg example" data-th-field="*{code}"> 
-				<input class="form-control form-control-lg" type="text" placeholder="Nombre de carrera" aria-label=".form-control-lg example" data-th-field="*{name}">
-				<input class="form-control form-control-lg" type="number" placeholder="Cantidad de años" aria-label=".form-control-lg example" data-th-field="*{total_years}">
-				<button type="submit" class="btn btn-info border-info">Guardar Carrera</button>
+	<body style="background-color: black">
+	<div class="container-fluid text-center">
+		<div class="row justify-content-center">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<div class="row">
+					<div data-th-replace="~{layouts/header :: header-oficial}"></div>
+					<aside class="col-md-2">
+						<div data-th-replace="~{fragments/aside-bt::aside-boot}"></div>
+					</aside>
+					<main class="col-md-10">
+						<form data-th-object="${nuevaCarrera}" data-th-action="@{/guardarCarrera}" method="post">
+							<div class="container-fluid" >
+								<div class="border border-warning rounded-pill badge text-bg-info text-wrap"> <h1>Formulario Carrera</h1></div>
+								<input class="form-control form-control-lg p-1 bg-opacity-3 border border-warning border-start-0 rounded-pill" type="text" placeholder="Codigo" aria-label=".form-control-lg example" data-th-field="*{code}"> 
+								<input class="form-control form-control-lg p-1 bg-info bg-opacity-3 border border-warning border-start-0 rounded-pill" type="text" placeholder="Nombre de carrera" aria-label=".form-control-lg example" data-th-field="*{name}">
+								<input class="form-control form-control-lg p-1 bg-info bg-opacity-3 border border-warning border-start-0 rounded-pill" type="number" placeholder="Cantidad de años" aria-label=".form-control-lg example" data-th-field="*{total_years}">
+								<button type="submit" class="btn btn-info border-warning rounded-pill">Guardar Carrera</button>
+							</div>
+						</form>
+						<div>
+							<a class="btn btn-warning" href="/principal/index"> ¿Cancelar?</a>
+						</div>
+					</main>
+					<footer>
+						<div data-th-replace="~{fragments/footer-f::footer-fr}"></div>
+					</footer>
+				</div>
+
 			</div>
-		</form>
+			<div class="col-md-2"></div>
+		</div>
+	</div>
 		<script data-th-src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 	</body>
 </html>

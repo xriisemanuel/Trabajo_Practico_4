@@ -25,7 +25,7 @@ public class ListadoAlumnos {
 	}
 
 	// Metodo para agregar alumno
-	public static void agregarCarrera(Alumno a) {
+	public static void agregarAlumno(Alumno a) {
 		alumnos.add(a);
 	}
 
