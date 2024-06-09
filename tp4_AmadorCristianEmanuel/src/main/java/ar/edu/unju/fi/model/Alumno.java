@@ -10,13 +10,13 @@ public class Alumno {
 	private String phone;
 	private LocalDate datebirth;
 	private String address;
-	private int lu;
+	private Integer lu;
 
 	public Alumno() {
 	}
 
 	public Alumno(String id, String name, String lastname, String email, String phone, LocalDate datebirth,
-			String address, int lu) {
+			String address, Integer lu) {
 		this.id = id;
 		this.name = name;
 		this.lastname = lastname;
@@ -83,11 +83,11 @@ public class Alumno {
 		this.address = address;
 	}
 
-	public int getLu() {
+	public Integer getLu() {
 		return lu;
 	}
 
-	public void setLu(int lu) {
+	public void setLu(Integer lu) {
 		this.lu = lu;
 	}
 

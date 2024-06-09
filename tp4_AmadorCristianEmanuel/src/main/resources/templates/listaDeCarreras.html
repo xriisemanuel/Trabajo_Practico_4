@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Lista Carreras</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+	<div class="container">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">Codigo</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Cantidad</th>
+					<th scope="col">Estado</th>
+					<th scope="col">Opciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-th-each="carrera : ${listadoCarreras}">
+					<td data-th-text="${carrera.code}"></td>
+					<td data-th-text="${carrera.name}"></td>
+					<td data-th-text="${carrera.total_years}"></td>
+					<td data-th-text="${carrera.state}"></td>
+					<td>
+						<a data-th-href="@{'/eliminarCarrera/' + ${carrera.code}}" class="btn btn-danger">Borrar</a>
+						<a data-th-href="@{'/modificarCarrera/' + ${carrera.code}}" class="btn btn-warning">Modificar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- 	<div> -->
+	<!-- 		<div class="card" style="width: 18rem;"> -->
+	<!-- 			<img src="..." class="card-img-top" alt="..."> -->
+	<!-- 			<div class="card-body"> -->
+	<!-- 				<h5 class="card-title">Card title</h5> -->
+	<!-- 				<p class="card-text">texto</p> -->
+	<!-- 				<a href="#" class="btn btn-primary">Go somewhere</a> -->
+	<!-- 				<a href="#" class="btn btn-primary">Go somewhere</a> -->
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+	<!-- 	</div> -->
+	<script data-th-src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

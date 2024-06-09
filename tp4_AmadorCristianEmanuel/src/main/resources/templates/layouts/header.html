@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div data-th-fragment="header-oficial">
+		<div class="card text-bg-dark border-info">
+			<div class="card-body">
+				<img alt="none" src="/img/fi_logo.png">
+				<h5 class="card-title text-warning bg-dark"
+					style="font-family: JetBrains-Mono">" ~ In lumine tuo
+					videbimus lumen ~ "</h5>
+			</div>
+		</div>
+		<div>
+			<header>
+				<div data-th-replace="~{fragments/header-nav::navbar}">
+					<!--  hace
+						referencia, hay muchos: @ # ~ + -->
+				</div>
+			</header>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,10 +1,10 @@
 package ar.edu.unju.fi.model;
 
 public class Materia {
-	private int code;
+	private Integer code;
 	private String name;
 	private String course;
-	private short hours;
+	private Integer hours;
 	private boolean modality;
 	private String teacher_name;
 	private String carrer;
@@ -12,9 +12,8 @@ public class Materia {
 	public Materia() {
 	}
 
-	public Materia(int code, String name, String course, short hours, boolean modality, String teacher_name,
+	public Materia(Integer code, String name, String course, Integer hours, boolean modality, String teacher_name,
 			String carrer) {
-		super();
 		this.code = code;
 		this.name = name;
 		this.course = course;
@@ -24,11 +23,11 @@ public class Materia {
 		this.carrer = carrer;
 	}
 
-	public int getCode() {
+	public Integer getCode() {
 		return code;
 	}
 
-	public void setCode(int code) {
+	public void setCode(Integer code) {
 		this.code = code;
 	}
 
@@ -48,11 +47,11 @@ public class Materia {
 		this.course = course;
 	}
 
-	public short getHours() {
+	public Integer getHours() {
 		return hours;
 	}
 
-	public void setHours(short hours) {
+	public void setHours(Integer hours) {
 		this.hours = hours;
 	}
 

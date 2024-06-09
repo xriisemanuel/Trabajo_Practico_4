@@ -1,37 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<title>Carreras</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	data-th-href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
-</head>
-<body>
-	<div>
-		<div class="mb-3">
-			<label for="exampleFormControlInput1" class="form-label">Codigo
-			</label> <input type="email" class="form-control"
-				id="exampleFormControlInput1" placeholder="name@example.com">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" data-th-href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+	</head>
+	<body>
+		<div data-th-replace="~{layouts/header :: header-oficial}">
+			
 		</div>
-		<div class="mb-3">
-			<label for="exampleFormControlTextarea1" class="form-label">Nombre
-				Carrera </label>
-			<textarea class="form-control" id="exampleFormControlTextarea1"
-				rows="3"></textarea>
-		</div>
-		<div class="mb-3">
-			<label for="exampleFormControlInput1" class="form-label">Cantidad
-				Años </label> <input type="email" class="form-control"
-				id="exampleFormControlInput1" placeholder="name@example.com">
-		</div>
-		<div class="mb-3">
-			<label for="exampleFormControlTextarea1" class="form-label">Nombre
-				Carrera </label>
-			<textarea class="form-control" id="exampleFormControlTextarea1"
-				rows="3"></textarea>
-		</div>
-	</div>
-	<script data-th-href=""></script>
-</body>
+		<form data-th-object="${nuevaCarrera}" data-th-action="@{/guardarCarrera}" method="post">
+			<div class="container-fluid text-center">
+				<h1>Formulario Carrera</h1>
+				<input class="form-control form-control-lg" type="text" placeholder="Codigo" aria-label=".form-control-lg example" data-th-field="*{code}"> 
+				<input class="form-control form-control-lg" type="text" placeholder="Nombre de carrera" aria-label=".form-control-lg example" data-th-field="*{name}">
+				<input class="form-control form-control-lg" type="number" placeholder="Cantidad de años" aria-label=".form-control-lg example" data-th-field="*{total_years}">
+				<button type="submit" class="btn btn-info border-info">Guardar Carrera</button>
+			</div>
+		</form>
+		<script data-th-src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	</body>
 </html>

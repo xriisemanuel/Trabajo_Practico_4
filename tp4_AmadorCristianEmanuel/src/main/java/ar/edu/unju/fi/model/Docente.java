@@ -1,7 +1,7 @@
 package ar.edu.unju.fi.model;
 
 public class Docente {
-	private int legajo;
+	private String legajo;
 	private String name;
 	private String lastname;
 	private String email;
@@ -10,8 +10,7 @@ public class Docente {
 	public Docente() {
 	}
 
-	public Docente(int legajo, String name, String lastname, String email, String phone) {
-		super();
+	public Docente(String legajo, String name, String lastname, String email, String phone) {
 		this.legajo = legajo;
 		this.name = name;
 		this.lastname = lastname;
@@ -19,11 +18,11 @@ public class Docente {
 		this.phone = phone;
 	}
 
-	public int getLegajo() {
+	public String getLegajo() {
 		return legajo;
 	}
 
-	public void setLegajo(int legajo) {
+	public void setLegajo(String legajo) {
 		this.legajo = legajo;
 	}
 
