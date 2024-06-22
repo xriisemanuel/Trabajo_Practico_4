@@ -10,15 +10,15 @@ public class ListadoCarreras {
 
 	// metodo para listar carreras
 	public static List<Carrera> listarCarreras() {
-//		List<Carrera> aux = new ArrayList<>();
-//		for (int i = 0; i < carreras.size(); i++) {
-//			Carrera carrera = carreras.get(i);
-//			if (carrera.isState()) {
-//				aux.add(carrera);
-//			}
-//		}
-		return carreras;
-//		return aux;
+		List<Carrera> aux = new ArrayList<Carrera>();
+		for (int i = 0; i < carreras.size(); i++) {
+			Carrera carrera = carreras.get(i);
+			if (carrera.isState()) {
+				aux.add(carrera);
+			}
+		}
+		//return carreras;
+		return aux;
 	}
 
 	// metodo para buscar una carrera por id
@@ -40,9 +40,11 @@ public class ListadoCarreras {
 
 	// metodo para modificar la carrera
 	public static void modificarCarrera(Carrera carreraModificada) {
+		
 		for (int i = 0; i < carreras.size(); i++) {
 			Carrera carrera = carreras.get(i);
 			if (carrera.getCode().equals(carreraModificada.getCode())) {
+				carreraModificada.setState(true);
 				carreras.set(i, carreraModificada);
 				break;
 			}

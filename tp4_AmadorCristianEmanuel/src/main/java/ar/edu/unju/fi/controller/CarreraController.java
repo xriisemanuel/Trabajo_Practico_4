@@ -18,7 +18,7 @@ public class CarreraController {
 	// injeccion de dependencias - @Component en la clase Carrera necesaria de
 	// agregar
 	@Autowired
-	Carrera nuevaCarrera = new Carrera();
+	Carrera nuevaCarrera = new Carrera(); //patron singelton
 
 	@GetMapping({ "/formCarrera" }) // end_point
 	public ModelAndView getFormCarrera() {
@@ -79,6 +79,7 @@ public class CarreraController {
         // Mostrar el formulario de edición con los datos de la carrera
         ModelAndView modelView = new ModelAndView("formCarrera");
         modelView.addObject("nuevaCarrera", carreraAEditar);
+        modelView.addObject("band",true);
         return modelView;
     }
     @PostMapping("/modificarCarrera")

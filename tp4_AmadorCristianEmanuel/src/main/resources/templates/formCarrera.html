@@ -16,7 +16,7 @@
 						<div data-th-replace="~{fragments/aside-bt::aside-boot}"></div>
 					</aside>
 					<main class="col-md-10">
-						<form data-th-object="${nuevaCarrera}" data-th-action="@{/guardarCarrera}" method="post">
+						<form data-th-object="${nuevaCarrera}" data-th-action="${band}?@{/modificarCarrera}:@{/guardarCarrera}" method="post">
 							<div class="container-fluid" >
 								<div class="border border-warning rounded-pill badge text-bg-info text-wrap"> <h1>Formulario Carrera</h1></div>
 								<input class="form-control form-control-lg p-1 bg-opacity-3 border border-warning border-start-0 rounded-pill" type="text" placeholder="Codigo" aria-label=".form-control-lg example" data-th-field="*{code}"> 
