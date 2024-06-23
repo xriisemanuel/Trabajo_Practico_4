@@ -9,12 +9,12 @@ public class Docente {
 	private String lastname;
 	private String email;
 	private String phone;
-	private Boolean state;
+	private boolean state;
 	
 	public Docente() {
 	}
 
-	public Docente(String legajo, String name, String lastname, String email, String phone, Boolean state) {
+	public Docente(String legajo, String name, String lastname, String email, String phone, boolean state) {
 		super();
 		this.legajo = legajo;
 		this.name = name;
@@ -64,12 +64,12 @@ public class Docente {
 		this.phone = phone;
 	}
 
-	public Boolean getState() {
+	public boolean isState() {
 		return state;
 	}
 
-	public void setState(Boolean state) {
+	public void setState(boolean state) {
 		this.state = state;
 	}
-
+	
 }

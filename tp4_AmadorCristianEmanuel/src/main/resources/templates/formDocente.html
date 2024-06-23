@@ -16,14 +16,14 @@
 						<div data-th-replace="~{fragments/aside-bt::aside-boot}"></div>
 					</aside>
 					<main class="col-md-10">
-						<form data-th-object="${nuevoDocente}" data-th-action="@{/guardarDocente}" method="post">
+						<form data-th-object="${nuevoDocente}" data-th-action="${band}?@{/modificarDocente}:@{/guardarDocente}" method="post">
 							<div class="container-fluid text-center">
 								<h1>Formulario Docente</h1>
-								<input class="form-control form-control-lg" type="text" placeholder="Legajo" aria-label=".form-control-lg example" data-th-field="*{legajo}"> 
-								<input class="form-control form-control-lg" type="text" placeholder="Nombre" aria-label=".form-control-lg example" data-th-field="*{name}">
-								<input class="form-control form-control-lg" type="text" placeholder="Apellido" aria-label=".form-control-lg example" data-th-field="*{lastname}"> 
-								<input class="form-control form-control-lg" type="email" placeholder="Email" aria-label=".form-control-lg example" data-th-field="*{email}">
-								<input class="form-control form-control-lg" type="email" placeholder="Teléfono" aria-label=".form-control-lg example" data-th-field="*{phone}">
+								<input class="form-control form-control-lg" type="text" placeholder="Legajo" aria-label=".form-control-lg example" data-th-field="*{legajo}" required> 
+								<input class="form-control form-control-lg" type="text" placeholder="Nombre" aria-label=".form-control-lg example" data-th-field="*{name}" required>
+								<input class="form-control form-control-lg" type="text" placeholder="Apellido" aria-label=".form-control-lg example" data-th-field="*{lastname}" required> 
+								<input class="form-control form-control-lg" type="email" placeholder="Email" aria-label=".form-control-lg example" data-th-field="*{email}" required>
+								<input class="form-control form-control-lg" type="number" placeholder="Teléfono" aria-label=".form-control-lg example" data-th-field="*{phone}" required>
 								<button type="submit" class="btn btn-info border-info">Guardar Docente</button>
 							</div>
 						</form>

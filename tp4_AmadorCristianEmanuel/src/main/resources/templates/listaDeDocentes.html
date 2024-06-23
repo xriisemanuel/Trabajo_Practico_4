@@ -22,6 +22,7 @@
 										<th scope="col">Apellido</th>
 										<th scope="col">Correo Electrónico</th>
 										<th scope="col">Teléfono</th>
+										<th scope="col">Estado</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -31,6 +32,7 @@
 										<td data-th-text="${docente.lastname}"></td>
 										<td data-th-text="${docente.email}"></td>
 										<td data-th-text="${docente.phone}"></td>
+										<td data-th-text="${docente.state}"></td>
 										<td>
 											<a data-th-href="@{'/eliminarDocente/' + ${docente.legajo}}" class="btn btn-danger">Borrar</a>
 											<a data-th-href="@{'/modificarDocente/' + ${docente.legajo}}" class="btn btn-warning">Modificar</a>

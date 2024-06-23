@@ -30,8 +30,6 @@ public class DocenteController {
 		ModelAndView modelView = new ModelAndView("formDocente");
 		// add el object
 		// modelView.addObject("nuevaCarrera", new Carrera());
-
-		// Patron Singelton
 		modelView.addObject("nuevoDocente", nuevoDocente);
 		// nuevaCarrera
 		// new Carrera()
@@ -67,6 +65,27 @@ public class DocenteController {
 		// mostrar nuevo listado
 		ModelAndView modelView = new ModelAndView("listaDeDocentes");
 		modelView.addObject("listadoDocentes", ListadoDocentes.listarDocentes());
+		return modelView;
+	}
+
+	@GetMapping("/modificarDocente/{legajo}")
+	public ModelAndView editarDocente(@PathVariable(name = "legajo") String legajo) {
+		Docente docente = ListadoDocentes.buscarDocentePorLegajo(legajo);
+		
+		ModelAndView modelView = new ModelAndView("formDocente");
+		modelView.addObject("nuevoDocente", docente);
+		modelView.addObject("band",true);			
+		return modelView;
+	}
+	
+	@PostMapping("/modificarDocente")
+	public ModelAndView updateDocente(@ModelAttribute("nuevoDocente") Docente d) {
+		
+		ListadoDocentes.modificarDocente(d);
+		
+		ModelAndView modelView = new ModelAndView("listaDeDocentes");
+		modelView.addObject("listadoDocentes",ListadoDocentes.listarDocentes());
+		
 		return modelView;
 	}
 }

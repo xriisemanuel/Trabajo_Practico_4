@@ -26,6 +26,7 @@ public class ListadoDocentes {
 
 	// Metodo para agregar docente
 	public static void agregarDocente(Docente d) {
+		d.setState(true);
 		docentes.add(d);
 	}
 
@@ -34,6 +35,7 @@ public class ListadoDocentes {
 		for (int i = 0; i < docentes.size(); i++) {
 			Docente docente = docentes.get(i);
 			if (docente.getLegajo().equals(docenteModificado.getLegajo())) {
+				docenteModificado.setState(true);
 				docentes.set(i, docenteModificado);
 				break;
 			}
@@ -42,6 +44,13 @@ public class ListadoDocentes {
 
 	// metodo para eliminar docente
 	public static void eliminarDocente(String legajo) {
-		docentes.removeIf(carrera -> carrera.getLegajo().equals(legajo));
+		//docentes.removeIf(carrera -> carrera.getLegajo().equals(legajo));
+		for (int i = 0; i < docentes.size(); i++) {
+			Docente docente = docentes.get(i);
+			if (docente.getLegajo().equals(legajo)) {
+				docente.setState(false);
+				break;
+			}
+		}
 	}
 }
