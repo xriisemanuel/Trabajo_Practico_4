@@ -15,7 +15,7 @@ public class ListadoMaterias {
 	}
 
 	// metodo para buscar una materia por codigo
-	public static Materia buscarMateriaPorCodigo(Integer codigo) {
+	public static Materia buscarMateriaPorCodigo(String codigo) {
 		for (Materia m : materias) {
 			if (m.getCode().equals(codigo)) {
 				return m;

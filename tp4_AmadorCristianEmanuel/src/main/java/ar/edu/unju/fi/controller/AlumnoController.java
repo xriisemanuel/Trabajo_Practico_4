@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unju.fi.collections.ListadoAlumnos;
-import ar.edu.unju.fi.collections.ListadoCarreras;
 import ar.edu.unju.fi.model.Alumno;
+
 @Controller
 public class AlumnoController {
 	// evita la creacion susesiva de Objetos
-		// injeccion de dependencias - @Component en la clase Carrera necesaria de agregar
+		// injeccion de dependencias - @Component en la clase Alumno necesaria de agregar
 		@Autowired
 		Alumno nuevoAlumno = new Alumno();
 		
@@ -26,13 +26,7 @@ public class AlumnoController {
 			 */
 			// ModelAndView is an object
 			ModelAndView modelView = new ModelAndView("formAlumno");
-			// add el object
-			//modelView.addObject("nuevaCarrera", new Carrera());
-			
-			//Patron Singelton
 			modelView.addObject("nuevoAlumno", nuevoAlumno);
-			// nuevaCarrera
-			// new Carrera()
 			return modelView;
 		}
 
@@ -66,4 +60,26 @@ public class AlumnoController {
 			modelView.addObject("listadoAlumnos", ListadoAlumnos.listarAlumnos());
 			return modelView;
 		}
+		
+		@GetMapping("/modificarAlumno/{id}")
+		public ModelAndView editarAlumno(@PathVariable(name = "id") String id) {
+			Alumno alumnoEditado = ListadoAlumnos.buscarAlumnoPorID(id);
+			
+			ModelAndView modelView = new ModelAndView("formAlumno");
+			modelView.addObject("nuevoAlumno", alumnoEditado);
+			modelView.addObject("flag",true);			
+			return modelView;
+		}
+		
+		@PostMapping("/modificarAlumno")
+		public ModelAndView updateAlumno(@ModelAttribute("nuevoAlumno") Alumno a) {
+			
+			ListadoAlumnos.modificarAlumno(a);
+			
+			ModelAndView modelView = new ModelAndView("listaDeAlumnos");
+			modelView.addObject("listadoAlumnos",ListadoAlumnos.listarAlumnos());
+			
+			return modelView;
+		}
+		
 }

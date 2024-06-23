@@ -16,7 +16,7 @@
 						<div data-th-replace="~{fragments/aside-bt::aside-boot}"></div>
 					</aside>
 					<main class="col-md-10">
-						<form data-th-object="${nuevoAlumno}" data-th-action="@{/guardarAlumno}" method="post">
+						<form data-th-object="${nuevoAlumno}" data-th-action="${band}?@{/modificarAlumno}:@{/guardarAlumno}" method="post">
 							<div class="container-fluid text-center">
 								<h1>Formulario Alumno</h1>
 								<input class="form-control form-control-lg" type="text" placeholder="Codigo" aria-label=".form-control-lg example" data-th-field="*{id}"> 

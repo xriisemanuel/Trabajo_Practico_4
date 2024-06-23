@@ -11,21 +11,30 @@ public class ListadoAlumnos {
 
 	// metodo para listar carreras
 	public static List<Alumno> listarAlumnos() {
-		return alumnos;
+		List<Alumno> x = new ArrayList<Alumno>();
+		for (int i =0; i < alumnos.size(); i++) {
+			Alumno alumno = alumnos.get(i);
+			if (alumno.getState()==true) {
+				x.add(alumno);
+			}
+		}
+		return x;
 	}
 
 	// metodo para buscar alumno por id
 	public static Alumno buscarAlumnoPorID(String id) {
-		for (Alumno c : alumnos) {
-			if (c.getId().equals(id)) {
-				return c;
-			}
+		Alumno buscado = null;
+		for (int i=0; i < alumnos.size(); i ++) {
+			buscado = alumnos.get(i);
+			if (buscado.getId().equals(id))
+				break;
 		}
-		return null;
+		return buscado;
 	}
 
 	// Metodo para agregar alumno
 	public static void agregarAlumno(Alumno a) {
+		a.setState(true);
 		alumnos.add(a);
 	}
 
@@ -34,6 +43,7 @@ public class ListadoAlumnos {
 		for (int i = 0; i < alumnos.size(); i++) {
 			Alumno alumno = alumnos.get(i);
 			if (alumno.getId().equals(alumnoModificado.getId())) {
+				alumnoModificado.setState(true);
 				alumnos.set(i, alumnoModificado);
 				break;
 			}
@@ -42,6 +52,14 @@ public class ListadoAlumnos {
 
 	// metodo para eliminar alumno
 	public static void eliminarAlumno(String id) {
-		alumnos.removeIf(alumno -> alumno.getId().equals(id));
+		//alumnos.removeIf(alumno -> alumno.getId().equals(id));
+		for(int i=0; i < alumnos.size(); i ++) {
+			Alumno alumno = alumnos.get(i);
+			
+			if (alumno.getId().equals(id)) {
+				alumno.setState(false);
+				break;
+			}
+		}
 	}
 }

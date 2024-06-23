@@ -17,7 +17,6 @@ public class ListadoCarreras {
 				aux.add(carrera);
 			}
 		}
-		//return carreras;
 		return aux;
 	}
 

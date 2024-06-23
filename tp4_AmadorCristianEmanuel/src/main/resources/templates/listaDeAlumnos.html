@@ -26,6 +26,7 @@
 										<th scope="col">Fecha de Nacimiento</th>
 										<th scope="col">Domicilio</th>
 										<th scope="col">LU</th>
+										<th scope="col">Estado</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -38,6 +39,7 @@
 										<td data-th-text="${alumno.datebirth}"></td>
 										<td data-th-text="${alumno.address}"></td>
 										<td data-th-text="${alumno.lu}"></td>
+										<td data-th-text="${alumno.state}"></td>
 										<td>
 											<a data-th-href="@{'/eliminarAlumno/' + ${alumno.id}}" class="btn btn-danger">Borrar</a>
 											<a data-th-href="@{'/modificarAlumno/' + ${alumno.id}}" class="btn btn-warning">Modificar</a>
