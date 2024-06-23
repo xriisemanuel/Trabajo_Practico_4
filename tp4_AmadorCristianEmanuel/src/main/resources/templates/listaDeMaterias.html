@@ -48,7 +48,7 @@
 										<td data-th-text="${materia.course}"></td>
 										<td data-th-text="${materia.hours}"></td>
 										<td data-th-text="${materia.modality}"></td>
-										<td data-th-text="${materia.teacher_name}"></td>
+										<td data-th-text="${materia.teacher_name.name}+' '+{materia.teacher_name.lastname}"></td>
 										<td data-th-text="${materia.carrer}"></td>
 										<td>
 											<a data-th-href="@{'/eliminarMateria/' + ${materia.code}}" class="btn btn-danger">Borrar</a>

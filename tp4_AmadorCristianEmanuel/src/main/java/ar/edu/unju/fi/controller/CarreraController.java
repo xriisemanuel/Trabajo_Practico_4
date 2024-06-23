@@ -18,7 +18,7 @@ public class CarreraController {
 	// injeccion de dependencias - @Component en la clase Carrera necesaria de
 	// agregar
 	@Autowired
-	Carrera nuevaCarrera = new Carrera(); //patron singelton
+	private Carrera nuevaCarrera; //patron singelton
 
 	@GetMapping({ "/formCarrera" }) // end_point
 	public ModelAndView getFormCarrera() {

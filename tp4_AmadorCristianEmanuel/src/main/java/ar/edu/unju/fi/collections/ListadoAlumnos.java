@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.collections;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import ar.edu.unju.fi.model.Alumno;
@@ -14,7 +15,7 @@ public class ListadoAlumnos {
 		List<Alumno> x = new ArrayList<Alumno>();
 		for (int i =0; i < alumnos.size(); i++) {
 			Alumno alumno = alumnos.get(i);
-			if (alumno.getState()==true) {
+			if (alumno.getState().equals(true)) {
 				x.add(alumno);
 			}
 		}
@@ -40,14 +41,34 @@ public class ListadoAlumnos {
 
 	// metodo para modificar alumno
 	public static void modificarAlumno(Alumno alumnoModificado) {
-		for (int i = 0; i < alumnos.size(); i++) {
-			Alumno alumno = alumnos.get(i);
+		
+		
+		Iterator<Alumno> alumnosIterator = alumnos.iterator();
+		boolean encontrado = false;
+		while (alumnosIterator.hasNext() && !encontrado) {
+			Alumno alumno = alumnosIterator.next();
 			if (alumno.getId().equals(alumnoModificado.getId())) {
-				alumnoModificado.setState(true);
-				alumnos.set(i, alumnoModificado);
-				break;
+				alumno.setName(alumnoModificado.getName());
+				alumno.setLastname(alumnoModificado.getLastname());
+				alumno.setId(alumnoModificado.getId());
+				alumno.setAddress(alumnoModificado.getAddress());
+				alumno.setDatebirth(alumnoModificado.getDatebirth());
+				alumno.setEmail(alumnoModificado.getEmail());
+				alumno.setLu(alumnoModificado.getLu());
+				alumno.setPhone(alumnoModificado.getPhone());
+				alumno.setState(true);
+				encontrado = true;
 			}
+		
 		}
+//		for (int i = 0; i < alumnos.size(); i++) {
+//			Alumno alumno = alumnos.get(i);
+//			if (alumno.getId().equals(alumnoModificado.getId())) {
+//				alumnoModificado.setState(true);
+//				alumnos.set(i, alumnoModificado);
+//				break;
+//			}
+//		}
 	}
 
 	// metodo para eliminar alumno

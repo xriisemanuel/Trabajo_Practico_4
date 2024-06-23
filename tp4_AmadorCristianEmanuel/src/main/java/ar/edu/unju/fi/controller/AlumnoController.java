@@ -67,7 +67,7 @@ public class AlumnoController {
 			
 			ModelAndView modelView = new ModelAndView("formAlumno");
 			modelView.addObject("nuevoAlumno", alumnoEditado);
-			modelView.addObject("flag",true);			
+			modelView.addObject("band",true);			
 			return modelView;
 		}
 		

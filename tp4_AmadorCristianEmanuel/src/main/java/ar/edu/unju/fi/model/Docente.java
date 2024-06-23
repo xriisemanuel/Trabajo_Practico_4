@@ -9,16 +9,19 @@ public class Docente {
 	private String lastname;
 	private String email;
 	private String phone;
-
+	private Boolean state;
+	
 	public Docente() {
 	}
 
-	public Docente(String legajo, String name, String lastname, String email, String phone) {
+	public Docente(String legajo, String name, String lastname, String email, String phone, Boolean state) {
+		super();
 		this.legajo = legajo;
 		this.name = name;
 		this.lastname = lastname;
 		this.email = email;
 		this.phone = phone;
+		this.state = state;
 	}
 
 	public String getLegajo() {
@@ -59,6 +62,14 @@ public class Docente {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public Boolean getState() {
+		return state;
+	}
+
+	public void setState(Boolean state) {
+		this.state = state;
 	}
 
 }

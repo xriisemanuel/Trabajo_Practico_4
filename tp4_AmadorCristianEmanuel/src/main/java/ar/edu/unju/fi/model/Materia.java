@@ -9,14 +9,16 @@ public class Materia {
 	private String course;
 	private Integer hours;
 	private boolean modality;
-	private String teacher_name;
-	private String carrer;
+	private Docente teacher_name;
+	private Carrera carrer;
+	private Boolean state;
 
 	public Materia() {
 	}
 
-	public Materia(String code, String name, String course, Integer hours, boolean modality, String teacher_name,
-			String carrer) {
+	public Materia(String code, String name, String course, Integer hours, boolean modality, Docente teacher_name,
+			Carrera carrer, Boolean state) {
+		super();
 		this.code = code;
 		this.name = name;
 		this.course = course;
@@ -24,6 +26,7 @@ public class Materia {
 		this.modality = modality;
 		this.teacher_name = teacher_name;
 		this.carrer = carrer;
+		this.state = state;
 	}
 
 	public String getCode() {
@@ -66,20 +69,27 @@ public class Materia {
 		this.modality = modality;
 	}
 
-	public String getTeacher_name() {
+	public Docente getTeacher_name() {
 		return teacher_name;
 	}
 
-	public void setTeacher_name(String teacher_name) {
+	public void setTeacher_name(Docente teacher_name) {
 		this.teacher_name = teacher_name;
 	}
 
-	public String getCarrer() {
+	public Carrera getCarrer() {
 		return carrer;
 	}
 
-	public void setCarrer(String carrer) {
+	public void setCarrer(Carrera carrer) {
 		this.carrer = carrer;
 	}
 
+	public Boolean getState() {
+		return state;
+	}
+
+	public void setState(Boolean state) {
+		this.state = state;
+	}
 }

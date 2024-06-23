@@ -23,6 +23,10 @@
 								<input class="form-control form-control-lg" type="text" placeholder="Nombre de la Materia" aria-label=".form-control-lg example" data-th-field="*{name}">
 								<input class="form-control form-control-lg" type="text" placeholder="Curso actual" aria-label=".form-control-lg example" data-th-field="*{course}">
 								<input class="form-control form-control-lg" type="number" placeholder="Cantidad de horas" aria-label=".form-control-lg example" data-th-field="*{hours}">
+								<label for="docente" class="form-label">Docente a cargo:</label>
+								<select type="text" class="form-control" id="docente" data-th-field="*{teacher_name.legajo}" required>
+										<option data-th-each="d : ${listadoDocentes}" data-th-value="${d.legajo}" data-th-text="${d.name}+' '+${d.lastname}"></option>
+								</select>
 								<input class="form-control form-control-lg" type="text" placeholder="nombre del profesor a cargo" aria-label=".form-control-lg example" data-th-field="*{teacher_name}">
 								<input class="form-control form-control-lg" type="text" placeholder="Carrera" aria-label=".form-control-lg example" data-th-field="*{carrer}"> 
 								<button type="submit" class="btn btn-info border-info">Guardar Materia</button>
