@@ -16,7 +16,7 @@
 						<div data-th-replace="~{fragments/aside-bt::aside-boot}"></div>
 					</aside>
 					<main class="col-md-10">
-						<form data-th-object="${nuevaMateria}" data-th-action="@{/guardarMateria}" method="post">
+						<form data-th-object="${nuevaMateria}" data-th-action="${band}?@{/modificarMateria}:@{/guardarMateria}" method="post">
 							<div class="container-fluid text-center">
 								<h1>Formulario Materia</h1>
 								<input class="form-control form-control-lg" type="text" placeholder="Codigo" aria-label=".form-control-lg example" data-th-field="*{code}"> 
@@ -27,8 +27,12 @@
 								<select type="text" class="form-control" id="docente" data-th-field="*{teacher_name.legajo}" required>
 										<option data-th-each="d : ${listadoDocentes}" data-th-value="${d.legajo}" data-th-text="${d.name}+' '+${d.lastname}"></option>
 								</select>
-								<input class="form-control form-control-lg" type="text" placeholder="nombre del profesor a cargo" aria-label=".form-control-lg example" data-th-field="*{teacher_name}">
-								<input class="form-control form-control-lg" type="text" placeholder="Carrera" aria-label=".form-control-lg example" data-th-field="*{carrer}"> 
+								<label for="carrera" class="form-label">Carrera:</label>
+								<select type="text" class="form-control" id="carrera" data-th-field="*{carrer.code}" required>
+										<option data-th-each="c : ${listadoCarreras}" data-th-value="${c.code}" data-th-text="${c.name}"></option>
+								</select>
+<!--								<input class="form-control form-control-lg" type="text" placeholder="nombre del profesor a cargo" aria-label=".form-control-lg example" data-th-field="*{teacher_name}">-->
+<!--								<input class="form-control form-control-lg" type="text" placeholder="Carrera" aria-label=".form-control-lg example" data-th-field="*{carrer}"> -->
 								<button type="submit" class="btn btn-info border-info">Guardar Materia</button>
 							</div>
 						</form>

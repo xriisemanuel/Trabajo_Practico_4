@@ -37,6 +37,7 @@ public class MateriaController {
 		//Patron Singelton
 		modelView.addObject("nuevaMateria", nuevaMateria);
 		 modelView.addObject("listadoDocentes",ListadoDocentes.listarDocentes());
+		 modelView.addObject("listadoCarreras",ListadoCarreras.listarCarreras());
 		// nuevaCarrera
 		// new Carrera()
 		return modelView;
@@ -48,12 +49,18 @@ public class MateriaController {
 		// saving
 		materiaParaGuardar.setModality(true);
 		Docente unDocente = ListadoDocentes.buscarDocentePorLegajo(materiaParaGuardar.getTeacher_name().getLegajo());
+		Carrera carrera = ListadoCarreras.buscarCarreraPorCodigo(materiaParaGuardar.getCarrer().getCode());
 		materiaParaGuardar.setTeacher_name(unDocente);
+		materiaParaGuardar.setCarrer(carrera);
+		System.out.println("Nombre de Docente en el controller - guardarMateria: "+unDocente.getName()); //tatiana
+		System.out.println("Nombre de Carrera en el controller - guardarMateria: "+carrera.getName()); //apu
 		ListadoMaterias.agregarMateria(materiaParaGuardar);
 
 		// show view
 		ModelAndView modelView = new ModelAndView("listaDeMaterias");
 		modelView.addObject("listadoMaterias", ListadoMaterias.listarMaterias());
+		modelView.addObject("listadoDocentes",ListadoDocentes.listarDocentes());
+		modelView.addObject("listadoCarreras",ListadoCarreras.listarCarreras());
 		return modelView;
 	}
 	
@@ -61,6 +68,8 @@ public class MateriaController {
 	public ModelAndView listarMaterias() {
 		ModelAndView modelView = new ModelAndView("listaDeMaterias");
 		modelView.addObject("listadoMaterias", ListadoMaterias.listarMaterias());
+		modelView.addObject("listadoDocentes",ListadoDocentes.listarDocentes());
+		modelView.addObject("listadoCarreras",ListadoCarreras.listarCarreras());
 		return modelView;
 	}
 
@@ -86,6 +95,8 @@ public class MateriaController {
 	        ModelAndView modelView = new ModelAndView("formMateria");
 	        modelView.addObject("nuevaMateria", materiaEditar);
 	        modelView.addObject("listadoDocentes",ListadoDocentes.listarDocentes());
+	        modelView.addObject("listadoDocentes",ListadoDocentes.listarDocentes());
+			modelView.addObject("listadoCarreras",ListadoCarreras.listarCarreras());
 	        modelView.addObject("band",true);
 	        return modelView;
 	    }
@@ -93,12 +104,16 @@ public class MateriaController {
 	    public ModelAndView updateMateria(@ModelAttribute("nuevaMateria") Materia m) {
 			
 			//guardar
+	    	m.setModality(true);
+			m.setTeacher_name(ListadoDocentes.buscarDocentePorLegajo(m.getTeacher_name().getLegajo()));
+			m.setCarrer(ListadoCarreras.buscarCarreraPorCodigo(m.getCarrer().getCode()));
 			ListadoMaterias.modificarMateria(m);
 			
 			//mostrar el listado
 			ModelAndView modelView = new ModelAndView("listaDeMaterias");
 			modelView.addObject("listadoMaterias", ListadoMaterias.listarMaterias());
-			
+			modelView.addObject("listadoDocentes",ListadoDocentes.listarDocentes());
+			modelView.addObject("listadoCarreras",ListadoCarreras.listarCarreras());
 			return modelView;		
 		}
 }

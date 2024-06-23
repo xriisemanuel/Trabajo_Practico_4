@@ -26,6 +26,7 @@ public class ListadoMaterias {
 
 	// Metodo para agregar materia
 	public static void agregarMateria(Materia m) {
+		m.setState(true);
 		materias.add(m);
 	}
 
@@ -34,6 +35,7 @@ public class ListadoMaterias {
 		for (int i = 0; i < materias.size(); i++) {
 			Materia materia = materias.get(i);
 			if (materia.getCode().equals(materiaModificada.getCode())) {
+				materiaModificada.setState(true);
 				materias.set(i, materiaModificada);
 				break;
 			}
@@ -42,6 +44,13 @@ public class ListadoMaterias {
 
 	// metodo para eliminar la materia
 	public static void eliminarMateria(String codigo) {
-		materias.removeIf(carrera -> carrera.getCode().equals(codigo));
+		//materias.removeIf(carrera -> carrera.getCode().equals(codigo));
+		for (int i = 0; i < materias.size(); i++) {
+			Materia materia = materias.get(i);
+			if (materia.getCode().equals(codigo)) {
+				materia.setState(false);
+				break;
+			}
+		}
 	}
 }

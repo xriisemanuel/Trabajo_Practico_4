@@ -39,22 +39,25 @@
 										<th scope="col">Modalidad</th>
 										<th scope="col">Docente a Cargo</th>
 										<th scope="col">Carrera</th>
+										<th scope="col">Estado</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr data-th-each="materia : ${listadoMaterias}">
-										<td data-th-text="${materia.code}"></td>
-										<td data-th-text="${materia.name}"></td>
-										<td data-th-text="${materia.course}"></td>
-										<td data-th-text="${materia.hours}"></td>
-										<td data-th-text="${materia.modality}"></td>
-										<td data-th-text="${materia.teacher_name.name}+' '+{materia.teacher_name.lastname}"></td>
-										<td data-th-text="${materia.carrer}"></td>
-										<td>
-											<a data-th-href="@{'/eliminarMateria/' + ${materia.code}}" class="btn btn-danger">Borrar</a>
-											<a data-th-href="@{'/modificarMateria/' + ${materia.code}}" class="btn btn-warning">Modificar</a>
-										</td>
-									</tr>
+								    <tr data-th-each="materia : ${listadoMaterias}">
+								        <td data-th-text="${materia.code}"></td>
+								        <td data-th-text="${materia.name}"></td>
+								        <td data-th-text="${materia.course}"></td>
+								        <td data-th-text="${materia.hours}"></td>
+								        <td data-th-text="${materia.modality}"></td>
+								        <td data-th-text="${materia.teacher_name.name} + ' ' + ${materia.teacher_name.lastname}"></td>
+								        <td data-th-text="${materia.carrer.name}"></td>
+										<td data-th-text="${materia.state}"></td>
+										<td>Opciones</td>
+								        <td>
+								            <a data-th-href="@{'/eliminarMateria/' + ${materia.code}}" class="btn btn-danger">Borrar</a>
+								            <a data-th-href="@{'/modificarMateria/' + ${materia.code}}" class="btn btn-warning">Modificar</a>
+								        </td>
+								    </tr>
 								</tbody>
 							</table>
 						</div>
