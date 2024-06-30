@@ -25,21 +25,21 @@
 											<div class="col"></div>
 											<div class="col-6">
 												
-													<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="text" placeholder="Codigo" aria-label=".form-control-lg example" data-th-field="*{code}"> 
-													<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="text" placeholder="Nombre de la Materia" aria-label=".form-control-lg example" data-th-field="*{name}">
-													<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="text" placeholder="Curso actual" aria-label=".form-control-lg example" data-th-field="*{course}">
-													<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="number" placeholder="Cantidad de horas" aria-label=".form-control-lg example" data-th-field="*{hours}">
+													<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="text" placeholder="Codigo" aria-label=".form-control-lg example" data-th-field="*{code}" required="required"> 
+													<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="text" placeholder="Nombre de la Materia" aria-label=".form-control-lg example" data-th-field="*{name}" required="required">
+													<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="text" placeholder="Curso actual" aria-label=".form-control-lg example" data-th-field="*{course}" required="required">
+													<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="number" placeholder="Cantidad de horas" aria-label=".form-control-lg example" data-th-field="*{hours}" required="required">
 													<label for="modalidad" class="form-label">Modalidad: </label>
 													<select class="form-select " data-th-field="*{modality}" required="required">
 													        <option data-th-value="VIRTUAL" selected>Virtual</option>
 													        <option data-th-value="PRESENCIAL">Presencial</option>
 													</select>
 													<label for="docente" class="form-label">Docente a cargo:</label>
-													<select type="text" class="form-control" id="docente" data-th-field="*{teacher_name.legajo}" required>
+													<select type="text" class="form-control" id="docente" data-th-field="*{teacher_name.legajo}" required="required">
 															<option data-th-each="d : ${listadoDocentes}" data-th-value="${d.legajo}" data-th-text="${d.name}+' '+${d.lastname}"></option>
 													</select>
 													<label for="carrera" class="form-label">Carrera:</label>
-													<select type="text" class="form-control" id="carrera" data-th-field="*{carrer.code}" required>
+													<select type="text" class="form-control" id="carrera" data-th-field="*{carrer.code}" required="required">
 															<option data-th-each="c : ${listadoCarreras}" data-th-value="${c.code}" data-th-text="${c.name}"></option>
 													</select>
 					<!--								<input class="form-control form-control-lg" type="text" placeholder="nombre del profesor a cargo" aria-label=".form-control-lg example" data-th-field="*{teacher_name}">-->
