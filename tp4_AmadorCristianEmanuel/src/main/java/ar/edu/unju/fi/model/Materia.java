@@ -1,19 +1,23 @@
 package ar.edu.unju.fi.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Materia {
-	private int code;
+	private String code;
 	private String name;
 	private String course;
-	private short hours;
-	private boolean modality;
-	private String teacher_name;
-	private String carrer;
+	private Integer hours;
+	private Modalidad modality;
+	private Docente teacher_name;
+	private Carrera carrer;
+	private Boolean state;
 
 	public Materia() {
 	}
 
-	public Materia(int code, String name, String course, short hours, boolean modality, String teacher_name,
-			String carrer) {
+	public Materia(String code, String name, String course, Integer hours, Modalidad modality, Docente teacher_name,
+			Carrera carrer, Boolean state) {
 		super();
 		this.code = code;
 		this.name = name;
@@ -22,13 +26,14 @@ public class Materia {
 		this.modality = modality;
 		this.teacher_name = teacher_name;
 		this.carrer = carrer;
+		this.state = state;
 	}
 
-	public int getCode() {
+	public String getCode() {
 		return code;
 	}
 
-	public void setCode(int code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 
@@ -48,36 +53,44 @@ public class Materia {
 		this.course = course;
 	}
 
-	public short getHours() {
+	public Integer getHours() {
 		return hours;
 	}
 
-	public void setHours(short hours) {
+	public void setHours(Integer hours) {
 		this.hours = hours;
 	}
 
-	public boolean isModality() {
+	public Modalidad getModality() {
 		return modality;
 	}
 
-	public void setModality(boolean modality) {
+	public void setModality(Modalidad modality) {
 		this.modality = modality;
 	}
 
-	public String getTeacher_name() {
+	public Docente getTeacher_name() {
 		return teacher_name;
 	}
 
-	public void setTeacher_name(String teacher_name) {
+	public void setTeacher_name(Docente teacher_name) {
 		this.teacher_name = teacher_name;
 	}
 
-	public String getCarrer() {
+	public Carrera getCarrer() {
 		return carrer;
 	}
 
-	public void setCarrer(String carrer) {
+	public void setCarrer(Carrera carrer) {
 		this.carrer = carrer;
+	}
+
+	public Boolean getState() {
+		return state;
+	}
+
+	public void setState(Boolean state) {
+		this.state = state;
 	}
 
 }

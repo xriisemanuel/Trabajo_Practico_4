@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Lista Docentes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body style="background-color: black">
+	<div class="container-fluid text-center">
+		<div class="row justify-content-center">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<div class="row">
+						<div data-th-replace="~{layouts/header :: header-oficial}"></div>
+						<div class="container">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th scope="col">Legajo</th>
+										<th scope="col">Nombre</th>
+										<th scope="col">Apellido</th>
+										<th scope="col">Correo Electrónico</th>
+										<th scope="col">Teléfono</th>
+										<th scope="col">Estado</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr data-th-each="docente : ${listadoDocentes}">
+										<td data-th-text="${docente.legajo}"></td>
+										<td data-th-text="${docente.name}"></td>
+										<td data-th-text="${docente.lastname}"></td>
+										<td data-th-text="${docente.email}"></td>
+										<td data-th-text="${docente.phone}"></td>
+										<td data-th-text="${docente.state}"></td>
+										<td>
+											<a data-th-href="@{'/eliminarDocente/' + ${docente.legajo}}" class="btn btn-danger">Borrar</a>
+											<a data-th-href="@{'/modificarDocente/' + ${docente.legajo}}" class="btn btn-warning">Modificar</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div>
+								<a class="btn btn-warning" data-th-href="@{'/formDocente'}"> ¿Nuevo Registro?</a>
+								<a class="btn btn-info" href="/principal/index">Ir al inicio</a>
+							</div>
+						</div>
+					<footer>
+						<div data-th-replace="~{fragments/footer-f::footer-fr}"></div>
+					</footer>
+				</div>
+
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+	</div>
+	<script data-th-src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

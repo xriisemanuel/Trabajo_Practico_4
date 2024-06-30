@@ -1,37 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<title>Carreras</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	data-th-href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
-</head>
-<body>
-	<div>
-		<div class="mb-3">
-			<label for="exampleFormControlInput1" class="form-label">Codigo
-			</label> <input type="email" class="form-control"
-				id="exampleFormControlInput1" placeholder="name@example.com">
-		</div>
-		<div class="mb-3">
-			<label for="exampleFormControlTextarea1" class="form-label">Nombre
-				Carrera </label>
-			<textarea class="form-control" id="exampleFormControlTextarea1"
-				rows="3"></textarea>
-		</div>
-		<div class="mb-3">
-			<label for="exampleFormControlInput1" class="form-label">Cantidad
-				Años </label> <input type="email" class="form-control"
-				id="exampleFormControlInput1" placeholder="name@example.com">
-		</div>
-		<div class="mb-3">
-			<label for="exampleFormControlTextarea1" class="form-label">Nombre
-				Carrera </label>
-			<textarea class="form-control" id="exampleFormControlTextarea1"
-				rows="3"></textarea>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" data-th-href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+	</head>
+	<body class="bg-dark">
+	<div class="container-fluid text-center">
+		<div class="row justify-content-center">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<div class="row">
+					<div data-th-replace="~{layouts/header :: header-oficial}"></div>
+					<aside class="col-md-2">
+						<div data-th-replace="~{fragments/aside-bt::aside-boot}"></div>
+					</aside>
+					<main class="col-md-10">
+						<form data-th-object="${nuevaCarrera}" data-th-action="${band}?@{/modificarCarrera}:@{/guardarCarrera}" method="post">
+							<div class="container-fluid" >
+								<div class="border border-warning rounded text-white"> <h1>Formulario Carrera</h1></div>
+								<div class="container text-center">
+									<div class="row">
+											<div class="col"></div>
+											<div class="col-6">
+												<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="text" placeholder="Codigo" aria-label=".form-control-lg example" data-th-field="*{code}"> 
+												<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="text" placeholder="Nombre de carrera" aria-label=".form-control-lg example" data-th-field="*{name}">
+												<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="number" placeholder="Cantidad de años" aria-label=".form-control-lg example" data-th-field="*{total_years}">
+												<button type="submit" class="btn btn-info border-warning rounded mt-2">Guardar Carrera</button>
+												<div>
+													<a class="btn btn-warning mt-2" href="/principal/index"> ¿Cancelar?</a>
+												</div>
+											</div>
+											<div class="col"></div>
+									</div>
+								</div>	
+							</div>
+						</form>
+					</main>
+					<footer>
+						<div data-th-replace="~{fragments/footer-f::footer-fr}"></div>
+					</footer>
+				</div>
+
+			</div>
+			<div class="col-md-2"></div>
 		</div>
 	</div>
-	<script data-th-href=""></script>
-</body>
-</html>
+		<script data-th-src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	</body>
+</html>l

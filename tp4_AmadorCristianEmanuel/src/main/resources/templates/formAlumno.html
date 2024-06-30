@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" data-th-href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+	</head>
+	<body style="background-color: black">
+	<div class="container-fluid text-center">
+		<div class="row justify-content-center">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<div class="row">
+					<div data-th-replace="~{layouts/header :: header-oficial}"></div>
+					<aside class="col-md-2">
+						<div data-th-replace="~{fragments/aside-bt::aside-boot}"></div>
+					</aside>
+					<main class="col-md-10">
+						<form data-th-object="${nuevoAlumno}" data-th-action="${band}?@{/modificarAlumno}:@{/guardarAlumno}" method="post">
+							<div class="border border-warning rounded text-white">
+								<h1>Formulario Alumno</h1>
+							</div>
+							<div class="container text-center">
+								<div class="row">
+									<div class="col"></div>
+									<div class="col-6">
+										<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="text" placeholder="Codigo" aria-label=".form-control-lg example" data-th-field="*{id}"> 
+										<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="text" placeholder="Nombre" aria-label=".form-control-lg example" data-th-field="*{name}">
+										<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="text" placeholder="Apellido" aria-label=".form-control-lg example" data-th-field="*{lastname}"> 
+										<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="email" placeholder="Correo electrónico" aria-label=".form-control-lg example" data-th-field="*{email}">
+										<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="text" placeholder="Teléfono" aria-label=".form-control-lg example" data-th-field="*{phone}"> 
+										<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="date" placeholder="Fecha de nacimiento" aria-label=".form-control-lg example" data-th-field="*{datebirth}">
+										<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="text" placeholder="Domicilio" aria-label=".form-control-lg example" data-th-field="*{address}"> 
+										<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="text" placeholder="Libreta universitaria" aria-label=".form-control-lg example" data-th-field="*{lu}">
+										<button type="submit" class="btn btn-info border-info m-2">Guardar Alumno</button>
+										<div>
+											<a class="btn btn-warning" href="/principal/index"> ¿Cancelar?</a>
+										</div>
+									</div>
+								<div class="col"></div>
+								</div>
+							</div>
+						</form>
+					</main>
+					<footer>
+						<div data-th-replace="~{fragments/footer-f::footer-fr}"></div>
+					</footer>
+				</div>
+
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+	</div>
+		<script data-th-src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	</body>
+</html>
