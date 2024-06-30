@@ -8,7 +8,7 @@ public class Materia {
 	private String name;
 	private String course;
 	private Integer hours;
-	private boolean modality;
+	private Modalidad modality;
 	private Docente teacher_name;
 	private Carrera carrer;
 	private Boolean state;
@@ -16,7 +16,7 @@ public class Materia {
 	public Materia() {
 	}
 
-	public Materia(String code, String name, String course, Integer hours, boolean modality, Docente teacher_name,
+	public Materia(String code, String name, String course, Integer hours, Modalidad modality, Docente teacher_name,
 			Carrera carrer, Boolean state) {
 		super();
 		this.code = code;
@@ -61,11 +61,11 @@ public class Materia {
 		this.hours = hours;
 	}
 
-	public boolean isModality() {
+	public Modalidad getModality() {
 		return modality;
 	}
 
-	public void setModality(boolean modality) {
+	public void setModality(Modalidad modality) {
 		this.modality = modality;
 	}
 
@@ -92,4 +92,5 @@ public class Materia {
 	public void setState(Boolean state) {
 		this.state = state;
 	}
+
 }

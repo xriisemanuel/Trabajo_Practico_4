@@ -47,7 +47,7 @@ public class MateriaController {
 	public ModelAndView saveMateria(@ModelAttribute("nuevaMateria") Materia materiaParaGuardar) {
 
 		// saving
-		materiaParaGuardar.setModality(true);
+		//materiaParaGuardar.setModality(true);
 		Docente unDocente = ListadoDocentes.buscarDocentePorLegajo(materiaParaGuardar.getTeacher_name().getLegajo());
 		Carrera carrera = ListadoCarreras.buscarCarreraPorCodigo(materiaParaGuardar.getCarrer().getCode());
 		materiaParaGuardar.setTeacher_name(unDocente);
@@ -104,7 +104,7 @@ public class MateriaController {
 	    public ModelAndView updateMateria(@ModelAttribute("nuevaMateria") Materia m) {
 			
 			//guardar
-	    	m.setModality(true);
+	    	//m.setModality(true);
 			m.setTeacher_name(ListadoDocentes.buscarDocentePorLegajo(m.getTeacher_name().getLegajo()));
 			m.setCarrer(ListadoCarreras.buscarCarreraPorCodigo(m.getCarrer().getCode()));
 			ListadoMaterias.modificarMateria(m);

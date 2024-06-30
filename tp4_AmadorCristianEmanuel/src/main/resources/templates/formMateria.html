@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" data-th-href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
 	</head>
-	<body style="background-color: black">
+	<body class="bg-dark">
 	<div class="container-fluid text-center">
 		<div class="row justify-content-center">
 			<div class="col-md-2"></div>
@@ -17,28 +17,43 @@
 					</aside>
 					<main class="col-md-10">
 						<form data-th-object="${nuevaMateria}" data-th-action="${band}?@{/modificarMateria}:@{/guardarMateria}" method="post">
-							<div class="container-fluid text-center">
-								<h1>Formulario Materia</h1>
-								<input class="form-control form-control-lg" type="text" placeholder="Codigo" aria-label=".form-control-lg example" data-th-field="*{code}"> 
-								<input class="form-control form-control-lg" type="text" placeholder="Nombre de la Materia" aria-label=".form-control-lg example" data-th-field="*{name}">
-								<input class="form-control form-control-lg" type="text" placeholder="Curso actual" aria-label=".form-control-lg example" data-th-field="*{course}">
-								<input class="form-control form-control-lg" type="number" placeholder="Cantidad de horas" aria-label=".form-control-lg example" data-th-field="*{hours}">
-								<label for="docente" class="form-label">Docente a cargo:</label>
-								<select type="text" class="form-control" id="docente" data-th-field="*{teacher_name.legajo}" required>
-										<option data-th-each="d : ${listadoDocentes}" data-th-value="${d.legajo}" data-th-text="${d.name}+' '+${d.lastname}"></option>
-								</select>
-								<label for="carrera" class="form-label">Carrera:</label>
-								<select type="text" class="form-control" id="carrera" data-th-field="*{carrer.code}" required>
-										<option data-th-each="c : ${listadoCarreras}" data-th-value="${c.code}" data-th-text="${c.name}"></option>
-								</select>
-<!--								<input class="form-control form-control-lg" type="text" placeholder="nombre del profesor a cargo" aria-label=".form-control-lg example" data-th-field="*{teacher_name}">-->
-<!--								<input class="form-control form-control-lg" type="text" placeholder="Carrera" aria-label=".form-control-lg example" data-th-field="*{carrer}"> -->
-								<button type="submit" class="btn btn-info border-info">Guardar Materia</button>
+							<div class="container-fluid">
+							
+								<div class="border border-warning rounded text-white"> <h1>Formulario Materia</h1></div>
+								<div class="container text-center">
+									<div class="row">
+											<div class="col"></div>
+											<div class="col-6">
+												
+													<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="text" placeholder="Codigo" aria-label=".form-control-lg example" data-th-field="*{code}"> 
+													<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="text" placeholder="Nombre de la Materia" aria-label=".form-control-lg example" data-th-field="*{name}">
+													<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="text" placeholder="Curso actual" aria-label=".form-control-lg example" data-th-field="*{course}">
+													<input class="form-control form-control-lg bg-secondary p-1 border border-warning border-start-0 rounded text-warning mt-2" type="number" placeholder="Cantidad de horas" aria-label=".form-control-lg example" data-th-field="*{hours}">
+													<label for="modalidad" class="form-label">Modalidad: </label>
+													<select class="form-select " data-th-field="*{modality}" required="required">
+													        <option data-th-value="VIRTUAL" selected>Virtual</option>
+													        <option data-th-value="PRESENCIAL">Presencial</option>
+													</select>
+													<label for="docente" class="form-label">Docente a cargo:</label>
+													<select type="text" class="form-control" id="docente" data-th-field="*{teacher_name.legajo}" required>
+															<option data-th-each="d : ${listadoDocentes}" data-th-value="${d.legajo}" data-th-text="${d.name}+' '+${d.lastname}"></option>
+													</select>
+													<label for="carrera" class="form-label">Carrera:</label>
+													<select type="text" class="form-control" id="carrera" data-th-field="*{carrer.code}" required>
+															<option data-th-each="c : ${listadoCarreras}" data-th-value="${c.code}" data-th-text="${c.name}"></option>
+													</select>
+					<!--								<input class="form-control form-control-lg" type="text" placeholder="nombre del profesor a cargo" aria-label=".form-control-lg example" data-th-field="*{teacher_name}">-->
+					<!--								<input class="form-control form-control-lg" type="text" placeholder="Carrera" aria-label=".form-control-lg example" data-th-field="*{carrer}"> -->
+													<button type="submit" class="btn btn-info border-info">Guardar Materia</button>
+													<div>
+														<a class="btn btn-warning" href="/principal/index"> ¿Cancelar?</a>
+													</div>
+											</div>
+											<div class="col"></div>
+									</div>
+								</div>	
 							</div>
 						</form>
-						<div>
-							<a class="btn btn-warning" href="/principal/index"> ¿Cancelar?</a>
-						</div>
 					</main>
 					<footer>
 						<div data-th-replace="~{fragments/footer-f::footer-fr}"></div>
